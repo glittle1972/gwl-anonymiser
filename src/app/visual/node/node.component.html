@@ -1,0 +1,8 @@
+<svg:g [attr.transform]="'translate(' + x + ',' + y + ')'">
+  <svg:circle *ngIf="source.completed==0" class="incomplete" [attr.r]="r" cx="0" cy="0"/>
+  <svg:circle *ngIf="source.completed===100" class="complete" [attr.r]="r" cx="0" cy="0"/>
+  <svg:g *ngIf="source.completed>0&&source.completed<100" [attr.transform]="'translate(' + x + ',' + y + ')'">
+    <svg:path [attr.d]="arc_complete" class="complete"/>
+    <svg:path [attr.d]="arc_incomplete" class="incomplete"/>
+  </svg:g>
+</svg:g>
