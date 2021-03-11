@@ -1,5 +1,5 @@
 import { Component, ViewChild, ElementRef, AfterViewInit } from '@angular/core';
-import { ModelService } from '../model.service';
+import { DataService } from '../model/data.service';
 
 import { Source } from '../model/source.model';
 import { Scale } from '../model/scale.model';
@@ -16,9 +16,9 @@ export class CanvasComponent implements AfterViewInit {
   /** Canvas 2d context */
   private context!: CanvasRenderingContext2D;
 
-  private model: ModelService;
+  private model: DataService;
 
-  constructor(model: ModelService) {
+  constructor(model: DataService) {
     this.model = model;
   }
 
@@ -32,7 +32,7 @@ export class CanvasComponent implements AfterViewInit {
    * Draws something using the context we obtained earlier on
    */
   private draw() {
-    var sources:Source[] = this.model.getFiles();
+    var sources:Source[] = this.model.getSources();
     var scale = new Scale((this.canvasEl.nativeElement as HTMLCanvasElement).width,
       (this.canvasEl.nativeElement as HTMLCanvasElement).height,
       sources.length);
@@ -52,7 +52,7 @@ export class CanvasComponent implements AfterViewInit {
     this.context.font = "30px Arial";
     this.context.textBaseline = 'middle';
     this.context.textAlign = 'center';
-    this.context.fillText(source.name, x, y);
+    this.context.fillText(source.file.name, x, y);
 }
 
   open() {

@@ -1,11 +1,13 @@
+import { File } from './file.model';
+
 // Define a Source object which maintains a list of fields
 export class Source {
 
-    public name: string;
-    public weight: number;
+    public file: File;
+    public completed: number;
 
-    constructor(name: string, weight: number) {
-        this.name = name;
-        this.weight = weight;
+    constructor(file: File, completed: number) {
+        this.file = file;
+        this.completed = completed;
     }
 }

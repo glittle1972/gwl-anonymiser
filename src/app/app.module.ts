@@ -13,13 +13,19 @@ import { AppComponent } from './app.component';
 import { HomeComponent } from './home/home.component';
 import { AboutComponent } from './about/about.component';
 import { CanvasComponent } from './canvas/canvas.component';
+import { FiledropDirective } from './filedrop/filedrop.directive';
+import { NodeComponent } from './visual/node/node.component';
+import { GraphComponent } from './visual/graph/graph.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     HomeComponent,
     AboutComponent,
-    CanvasComponent
+    CanvasComponent,
+    FiledropDirective,
+    NodeComponent,
+    GraphComponent
   ],
   imports: [
     BrowserModule,
